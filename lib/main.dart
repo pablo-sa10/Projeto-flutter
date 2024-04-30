@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
             Task("Aprender Flutter",
                 "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large"),
             Task("Aprender bike",
-                "https://tswbike.com/wp-content/uploads/2020/09/108034687_626160478000800_2490880540739582681_n-e1600200953343.jpg"),
+                "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large"),
             Task("Aprender programação",
                 "https://manhattanmentalhealthcounseling.com/wp-content/uploads/2019/06/Top-5-Scientific-Findings-on-MeditationMindfulness-881x710.jpeg"),
             Task("Aprender a dançar",
