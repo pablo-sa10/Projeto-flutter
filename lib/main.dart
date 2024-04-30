@@ -25,15 +25,24 @@ class MyApp extends StatelessWidget {
           scrollDirection: Axis.vertical,
           //mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Task("Aprender Flutter"),
-            Task("Aprender bike"),
-            Task("Aprender programação"),
-            Task("Aprender a dançar"),
-            Task("Aprender a tocar"),
-            Task("Aprender programação"),
-            Task("Aprender programação"),
-            Task("Aprender programação"),
-            Task("Aprender programação"),
+            Task("Aprender Flutter",
+                "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large"),
+            Task("Aprender bike",
+                "https://tswbike.com/wp-content/uploads/2020/09/108034687_626160478000800_2490880540739582681_n-e1600200953343.jpg"),
+            Task("Aprender programação",
+                "https://manhattanmentalhealthcounseling.com/wp-content/uploads/2019/06/Top-5-Scientific-Findings-on-MeditationMindfulness-881x710.jpeg"),
+            Task("Aprender a dançar",
+                "https://thebogotapost.com/wp-content/uploads/2017/06/636052464065850579-137719760_flyer-image-1.jpg"),
+            Task("Aprender a tocar",
+                "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large"),
+            Task("Aprender programação",
+                "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large"),
+            Task("Aprender programação",
+                "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large"),
+            Task("Aprender programação",
+                "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large"),
+            Task("Aprender programação",
+                "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large"),
           ],
         ),
         floatingActionButton: FloatingActionButton(
@@ -49,7 +58,9 @@ class MyApp extends StatelessWidget {
 class Task extends StatefulWidget {
   final String nomeTarefa;
 
-  const Task(this.nomeTarefa, {super.key});
+  final String img;
+
+  const Task(this.nomeTarefa, this.img, {super.key});
 
   @override
   State<Task> createState() => _TaskState();
@@ -81,6 +92,10 @@ class _TaskState extends State<Task> {
                         color: Colors.black26,
                         width: 72,
                         height: 100,
+                        child: Image.network(
+                          widget.img,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                       Container(
                           width: 200,
@@ -114,7 +129,8 @@ class _TaskState extends State<Task> {
                                 ),
                                 Text(
                                   "UP",
-                                  style: TextStyle(fontSize: 12),
+                                  style: TextStyle(
+                                      fontSize: 12, color: Colors.white),
                                 ),
                               ],
                             )),
