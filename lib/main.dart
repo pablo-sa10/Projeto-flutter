@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
             Task("Aprender a dançar",
                 "https://thebogotapost.com/wp-content/uploads/2017/06/636052464065850579-137719760_flyer-image-1.jpg"),
             Task("Aprender a tocar",
-                "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large"),
+                "https://i.ibb.co/tB29PZB/kako-epifania-2022-2-c-pia.jpg"),
             Task("Aprender programação",
                 "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large"),
             Task("Aprender programação",
