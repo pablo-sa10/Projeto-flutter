@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
+          leading: Container(),
           backgroundColor: Colors.blue,
           title: Text('Tarefas'),
         ),
@@ -90,20 +91,34 @@ class _TaskState extends State<Task> {
                               overflow: TextOverflow.ellipsis,
                             ),
                           )),
-                      ElevatedButton(
-                          onPressed: () {
-                            setState(() {
-                              nivel++;
-                            });
-                          },
-                          style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.all<Color>(Colors.blue),
-                          ),
-                          child: Icon(
-                            Icons.arrow_drop_up,
-                            color: Colors.white,
-                          ))
+                      Container(
+                        height: 50,
+                        width: 70,
+                        child: ElevatedButton(
+                            onPressed: () {
+                              setState(() {
+                                nivel++;
+                              });
+                            },
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.all<Color>(Colors.blue),
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Icon(
+                                  Icons.arrow_drop_up,
+                                  color: Colors.white,
+                                ),
+                                Text(
+                                  "UP",
+                                  style: TextStyle(fontSize: 12),
+                                ),
+                              ],
+                            )),
+                      )
                     ],
                   ),
                 ),
