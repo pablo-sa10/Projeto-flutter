@@ -115,9 +115,12 @@ class _TaskState extends State<Task> {
                           borderRadius: BorderRadius.circular(4),
                           color: Colors.black26,
                         ),
-                        child: Image.network(
-                          widget.img,
-                          fit: BoxFit.cover,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(4),
+                          child: Image.network(
+                            widget.img,
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                       Column(
