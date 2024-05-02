@@ -1,12 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_dart/difficulty.dart';
 //import 'dart:ui';
 
+//import 'package:projeto_dart/project.dart';
+
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
+  MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  bool opacity = true;
 
   @override
   Widget build(BuildContext context) {
@@ -21,50 +31,58 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.blue,
           title: Text('Tarefas'),
         ),
-        body: ListView(
-          scrollDirection: Axis.vertical,
-          //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Task(
-                "Aprender Flutter",
-                "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
-                3),
-            Task(
-                "Aprender bike",
-                "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
-                2),
-            Task(
-                "Aprender programação",
-                "https://manhattanmentalhealthcounseling.com/wp-content/uploads/2019/06/Top-5-Scientific-Findings-on-MeditationMindfulness-881x710.jpeg",
-                5),
-            Task(
-                "Aprender a dançar",
-                "https://thebogotapost.com/wp-content/uploads/2017/06/636052464065850579-137719760_flyer-image-1.jpg",
-                4),
-            Task("Aprender a tocar",
-                "https://i.ibb.co/tB29PZB/kako-epifania-2022-2-c-pia.jpg", 1),
-            Task(
-                "Aprender programação",
-                "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
-                1),
-            Task(
-                "Aprender programação",
-                "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
-                4),
-            Task(
-                "Aprender programação",
-                "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
-                3),
-            Task(
-                "Aprender programação",
-                "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
-                2),
-          ],
+        body: AnimatedOpacity(
+          opacity: opacity ? 1 : 0,
+          duration: Duration(milliseconds: 800),
+          child: ListView(
+            scrollDirection: Axis.vertical,
+            //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Task(
+                  "Aprender Flutter",
+                  "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
+                  3),
+              Task(
+                  "Aprender bike",
+                  "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
+                  2),
+              Task(
+                  "Aprender programação",
+                  "https://manhattanmentalhealthcounseling.com/wp-content/uploads/2019/06/Top-5-Scientific-Findings-on-MeditationMindfulness-881x710.jpeg",
+                  5),
+              Task(
+                  "Aprender a dançar",
+                  "https://thebogotapost.com/wp-content/uploads/2017/06/636052464065850579-137719760_flyer-image-1.jpg",
+                  4),
+              Task("Aprender a tocar",
+                  "https://i.ibb.co/tB29PZB/kako-epifania-2022-2-c-pia.jpg", 1),
+              Task(
+                  "Aprender programação",
+                  "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
+                  1),
+              Task(
+                  "Aprender programação",
+                  "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
+                  4),
+              Task(
+                  "Aprender programação",
+                  "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
+                  3),
+              Task(
+                  "Aprender programação",
+                  "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
+                  2),
+            ],
+          ),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            setState(() {
+              opacity = !opacity;
+            });
+          },
           backgroundColor: Colors.blue,
-          child: Icon(Icons.add, color: Colors.white),
+          child: Icon(Icons.remove_red_eye, color: Colors.white),
         ),
       ),
     );
@@ -136,34 +154,8 @@ class _TaskState extends State<Task> {
                                   overflow: TextOverflow.ellipsis,
                                 ),
                               )),
-                          Row(
-                            children: [
-                              Icon(Icons.star,
-                                  size: 15,
-                                  color: (widget.dificuldade >= 1)
-                                      ? Colors.blue
-                                      : Colors.blue[100]),
-                              Icon(Icons.star,
-                                  size: 15,
-                                  color: (widget.dificuldade >= 2)
-                                      ? Colors.blue
-                                      : Colors.blue[100]),
-                              Icon(Icons.star,
-                                  size: 15,
-                                  color: (widget.dificuldade >= 3)
-                                      ? Colors.blue
-                                      : Colors.blue[100]),
-                              Icon(Icons.star,
-                                  size: 15,
-                                  color: (widget.dificuldade >= 4)
-                                      ? Colors.blue
-                                      : Colors.blue[100]),
-                              Icon(Icons.star,
-                                  size: 15,
-                                  color: (widget.dificuldade >= 5)
-                                      ? Colors.blue
-                                      : Colors.blue[100]),
-                            ],
+                          Difficulty(
+                            difficultyLevel: widget.dificuldade,
                           ),
                         ],
                       ),
