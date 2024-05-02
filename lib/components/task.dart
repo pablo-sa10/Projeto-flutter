@@ -3,7 +3,6 @@ import 'package:projeto_dart/components/difficulty.dart';
 
 class Task extends StatefulWidget {
   final String nomeTarefa;
-
   final String img;
   final int dificuldade;
 
@@ -15,6 +14,14 @@ class Task extends StatefulWidget {
 
 class _TaskState extends State<Task> {
   int nivel = 0;
+  int levelCor = 0;
+  final Map<int, Color> colorMap = {
+    1: const Color.fromARGB(255, 1, 45, 165),
+    2: const Color.fromARGB(255, 79, 33, 243),
+    3: const Color.fromARGB(255, 84, 2, 190),
+    4: const Color.fromARGB(255, 41, 0, 68),
+    5: Colors.black,
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +31,8 @@ class _TaskState extends State<Task> {
         children: [
           Container(
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(4), color: Colors.blue),
+                borderRadius: BorderRadius.circular(4),
+                color: colorMap[levelCor] ?? Colors.blue),
             height: 140,
           ),
           Column(
@@ -76,8 +84,14 @@ class _TaskState extends State<Task> {
                       child: ElevatedButton(
                           onPressed: () {
                             setState(() {
-                              nivel++;
+                              if (levelCor < 6) {
+                                nivel++;
+                              }
                             });
+                            if (((nivel / widget.dificuldade) / 10) > 1) {
+                              levelCor++;
+                              nivel = 0;
+                            }
                           },
                           style: ButtonStyle(
                             backgroundColor:
@@ -111,9 +125,8 @@ class _TaskState extends State<Task> {
                       width: 200,
                       child: LinearProgressIndicator(
                         color: Colors.white,
-                        value: (widget.dificuldade > 0)
-                            ? (nivel / widget.dificuldade) / 10
-                            : 1,
+                        value: (nivel / widget.dificuldade) / 10,
+                        //
                       ),
                     ),
                   ),
