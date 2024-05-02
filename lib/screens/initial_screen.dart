@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_dart/task.dart';
+import 'package:projeto_dart/components/task.dart';
 
 class InitialScreen extends StatefulWidget {
   const InitialScreen({super.key});
@@ -60,6 +60,9 @@ class _InitialScreenState extends State<InitialScreen> {
                 "Aprender programação",
                 "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
                 2),
+            SizedBox(
+              height: 80,
+            )
           ],
         ),
       ),

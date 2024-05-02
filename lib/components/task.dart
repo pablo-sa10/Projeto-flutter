@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_dart/difficulty.dart';
+import 'package:projeto_dart/components/difficulty.dart';
 
 class Task extends StatefulWidget {
   final String nomeTarefa;
