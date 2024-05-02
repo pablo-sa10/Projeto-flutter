@@ -26,40 +26,15 @@ class _InitialScreenState extends State<InitialScreen> {
           scrollDirection: Axis.vertical,
           //mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: const [
-            Task(
-                "Aprender Flutter",
-                "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
-                3),
-            Task(
-                "Aprender bike",
-                "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
-                2),
-            Task(
-                "Aprender programação",
-                "https://manhattanmentalhealthcounseling.com/wp-content/uploads/2019/06/Top-5-Scientific-Findings-on-MeditationMindfulness-881x710.jpeg",
-                5),
-            Task(
-                "Aprender a dançar",
-                "https://thebogotapost.com/wp-content/uploads/2017/06/636052464065850579-137719760_flyer-image-1.jpg",
-                4),
-            Task("Aprender a tocar",
-                "https://i.ibb.co/tB29PZB/kako-epifania-2022-2-c-pia.jpg", 1),
-            Task(
-                "Aprender programação",
-                "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
-                1),
-            Task(
-                "Aprender programação",
-                "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
-                4),
-            Task(
-                "Aprender programação",
-                "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
-                3),
-            Task(
-                "Aprender programação",
-                "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
-                2),
+            Task("Aprender Flutter", "assets/images/bird.jpg", 3),
+            Task("Aprender bike", "assets/images/bird.jpg", 2),
+            Task("Aprender programação", "assets/images/bird.jpg", 5),
+            Task("Aprender a dançar", "assets/images/bird.jpg", 4),
+            Task("Aprender a tocar", "assets/images/bird.jpg", 1),
+            Task("Aprender programação", "assets/images/bird.jpg", 1),
+            Task("Aprender programação", "assets/images/bird.jpg", 4),
+            Task("Aprender programação", "assets/images/bird.jpg", 3),
+            Task("Aprender programação", "assets/images/bird.jpg", 2),
             SizedBox(
               height: 80,
             )
