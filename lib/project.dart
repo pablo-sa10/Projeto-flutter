@@ -67,7 +67,7 @@ class MyFirstWidget extends StatelessWidget {
             color: Colors.amber,
             height: 30,
             width: 3000,
-            child: Text(
+            child: const Text(
               'Pablo',
               style: TextStyle(color: Colors.black, fontSize: 28),
               textAlign: TextAlign.center,
@@ -77,7 +77,7 @@ class MyFirstWidget extends StatelessWidget {
               onPressed: () {
                 print('Você apertou obotão');
               },
-              child: Text('Aperte o botão!')),
+              child: const Text('Aperte o botão!')),
         ],
 
         //Abaixo está o exercicio

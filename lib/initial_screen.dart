@@ -17,15 +17,15 @@ class _InitialScreenState extends State<InitialScreen> {
       appBar: AppBar(
         leading: Container(),
         backgroundColor: Colors.blue,
-        title: Text('Tarefas'),
+        title: const Text('Tarefas'),
       ),
       body: AnimatedOpacity(
         opacity: opacity ? 1 : 0,
-        duration: Duration(milliseconds: 800),
+        duration: const Duration(milliseconds: 800),
         child: ListView(
           scrollDirection: Axis.vertical,
           //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
+          children: const [
             Task(
                 "Aprender Flutter",
                 "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
@@ -70,7 +70,7 @@ class _InitialScreenState extends State<InitialScreen> {
           });
         },
         backgroundColor: Colors.blue,
-        child: Icon(Icons.remove_red_eye, color: Colors.white),
+        child: const Icon(Icons.remove_red_eye, color: Colors.white),
       ),
     );
   }
