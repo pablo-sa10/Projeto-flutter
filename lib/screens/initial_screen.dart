@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_dart/components/task.dart';
+import 'package:projeto_dart/Data/task_inherited.dart';
 import 'package:projeto_dart/screens/form_screen.dart';
 
 class InitialScreen extends StatefulWidget {
@@ -21,20 +21,7 @@ class _InitialScreenState extends State<InitialScreen> {
       body: ListView(
         scrollDirection: Axis.vertical,
         //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: const [
-          Task("Aprender Flutter", "assets/images/bird.jpg", 3),
-          Task("Aprender bike", "assets/images/bird.jpg", 2),
-          Task("Aprender programação", "assets/images/bird.jpg", 5),
-          Task("Aprender a dançar", "assets/images/bird.jpg", 4),
-          Task("Aprender a tocar", "assets/images/bird.jpg", 1),
-          Task("Aprender programação", "assets/images/bird.jpg", 1),
-          Task("Aprender programação", "assets/images/bird.jpg", 4),
-          Task("Aprender programação", "assets/images/bird.jpg", 3),
-          Task("Aprender programação", "assets/images/bird.jpg", 2),
-          SizedBox(
-            height: 80,
-          )
-        ],
+        children: TaskInherited.of(context).taskList,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
