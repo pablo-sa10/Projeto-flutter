@@ -25,8 +25,12 @@ class _InitialScreenState extends State<InitialScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const FormScreen()));
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (contextNew) => FormScreen(
+                        taskContext: context,
+                      )));
         },
         backgroundColor: Colors.blue,
         child: const Icon(Icons.add, color: Colors.white),

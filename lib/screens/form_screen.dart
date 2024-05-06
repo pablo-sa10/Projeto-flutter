@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_dart/Data/task_inherited.dart';
 
 class FormScreen extends StatefulWidget {
-  const FormScreen({super.key});
+  const FormScreen({super.key, required this.taskContext});
+
+  final BuildContext taskContext;
 
   @override
   State<FormScreen> createState() => _FormScreenState();
@@ -128,6 +131,10 @@ class _FormScreenState extends State<FormScreen> {
                             MaterialStateProperty.all<Color>(Colors.blue)),
                     onPressed: () {
                       if (_formkey.currentState!.validate()) {
+                        TaskInherited.of(widget.taskContext).newTask(
+                            nameController.text,
+                            imageController.text,
+                            int.parse(difficultyController.text));
                         ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
                                 content: Text('Salvando nova tarefa')));
