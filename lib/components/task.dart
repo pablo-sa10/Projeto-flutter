@@ -6,15 +6,23 @@ class Task extends StatefulWidget {
   final String img;
   final int dificuldade;
 
-  const Task(this.nomeTarefa, this.img, this.dificuldade, {super.key});
+  Task(this.nomeTarefa, this.img, this.dificuldade, {super.key});
+
+  int nivel = 0;
+  int levelCor = 0;
 
   @override
   State<Task> createState() => _TaskState();
 }
 
 class _TaskState extends State<Task> {
-  int nivel = 0;
-  int levelCor = 0;
+  bool assets() {
+    if (widget.img.contains('http')) {
+      return false;
+    }
+    return true;
+  }
+
   final Map<int, Color> colorMap = {
     1: const Color.fromARGB(255, 1, 45, 165),
     2: const Color.fromARGB(255, 79, 33, 243),
@@ -32,7 +40,7 @@ class _TaskState extends State<Task> {
           Container(
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(4),
-                color: colorMap[levelCor] ?? Colors.blue),
+                color: colorMap[widget.levelCor] ?? Colors.blue),
             height: 140,
           ),
           Column(
@@ -54,10 +62,12 @@ class _TaskState extends State<Task> {
                       ),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(4),
-                        child: Image.asset(
-                          widget.img,
-                          fit: BoxFit.cover,
-                        ),
+                        child: assets()
+                            ? Image.asset(
+                                widget.img,
+                                fit: BoxFit.cover,
+                              )
+                            : Image.network(widget.img, fit: BoxFit.cover),
                       ),
                     ),
                     Column(
@@ -84,13 +94,14 @@ class _TaskState extends State<Task> {
                       child: ElevatedButton(
                           onPressed: () {
                             setState(() {
-                              if (levelCor < 6) {
-                                nivel++;
+                              if (widget.levelCor < 6) {
+                                widget.nivel++;
                               }
                             });
-                            if (((nivel / widget.dificuldade) / 10) > 1) {
-                              levelCor++;
-                              nivel = 0;
+                            if (((widget.nivel / widget.dificuldade) / 10) >
+                                1) {
+                              widget.levelCor++;
+                              widget.nivel = 0;
                             }
                           },
                           style: ButtonStyle(
@@ -125,7 +136,7 @@ class _TaskState extends State<Task> {
                       width: 200,
                       child: LinearProgressIndicator(
                         color: Colors.white,
-                        value: (nivel / widget.dificuldade) / 10,
+                        value: (widget.nivel / widget.dificuldade) / 10,
                         //
                       ),
                     ),
@@ -133,7 +144,7 @@ class _TaskState extends State<Task> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      "Nivel $nivel",
+                      "Nivel ${widget.nivel}",
                       style: const TextStyle(color: Colors.white, fontSize: 16),
                     ),
                   ),

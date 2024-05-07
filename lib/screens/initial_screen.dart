@@ -20,6 +20,7 @@ class _InitialScreenState extends State<InitialScreen> {
       ),
       body: ListView(
         scrollDirection: Axis.vertical,
+        padding: const EdgeInsets.only(top: 10, bottom: 70),
         //mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: TaskInherited.of(context).taskList,
       ),
