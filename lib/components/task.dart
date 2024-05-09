@@ -111,8 +111,8 @@ class _TaskState extends State<Task> {
                                           child: Text("Cancelar")),
                                       TextButton(
                                           onPressed: () {
-                                            TaskDao().delete(widget.nomeTarefa);
                                             Navigator.pop(context);
+                                            TaskDao().delete(widget.nomeTarefa);
                                           },
                                           child: Text("Sim")),
                                     ],
