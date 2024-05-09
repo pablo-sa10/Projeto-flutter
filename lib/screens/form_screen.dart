@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_dart/Data/task_dao.dart';
 import 'package:projeto_dart/Data/task_inherited.dart';
+import 'package:projeto_dart/components/task.dart';
 
 class FormScreen extends StatefulWidget {
   const FormScreen({super.key, required this.taskContext});
@@ -49,8 +51,8 @@ class _FormScreenState extends State<FormScreen> {
         body: Center(
           child: SingleChildScrollView(
             child: Container(
-              height: 650,
-              width: 375,
+              width: 400,
+              height: 800,
               decoration: BoxDecoration(
                   color: Colors.black12,
                   borderRadius: BorderRadius.circular(10),
@@ -146,10 +148,10 @@ class _FormScreenState extends State<FormScreen> {
                             MaterialStateProperty.all<Color>(Colors.blue)),
                     onPressed: () {
                       if (_formkey.currentState!.validate()) {
-                        TaskInherited.of(widget.taskContext).newTask(
+                        TaskDao().save(Task(
                             nameController.text,
                             imageController.text,
-                            int.parse(difficultyController.text));
+                            int.parse(difficultyController.text)));
                         ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
                                 content: Text('Salvando nova tarefa')));

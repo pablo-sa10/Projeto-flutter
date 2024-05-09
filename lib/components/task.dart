@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+
+//import 'package:projeto_dart/Data/task_dao.dart';
 import 'package:projeto_dart/components/difficulty.dart';
+
+import '../Data/task_dao.dart';
 
 class Task extends StatefulWidget {
   final String nomeTarefa;
@@ -92,6 +96,29 @@ class _TaskState extends State<Task> {
                       height: 50,
                       width: 70,
                       child: ElevatedButton(
+                          onLongPress: () {
+                            showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: Text("Atenção!"),
+                                    content: Text("Deseja excluir a tarefa?"),
+                                    actions: [
+                                      TextButton(
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          },
+                                          child: Text("Cancelar")),
+                                      TextButton(
+                                          onPressed: () {
+                                            TaskDao().delete(widget.nomeTarefa);
+                                            Navigator.pop(context);
+                                          },
+                                          child: Text("Sim")),
+                                    ],
+                                  );
+                                });
+                          },
                           onPressed: () {
                             setState(() {
                               if (widget.levelCor < 6) {

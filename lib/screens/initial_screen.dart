@@ -19,6 +19,16 @@ class _InitialScreenState extends State<InitialScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: Container(),
+        actions: [
+          IconButton(
+              onPressed: () {
+                setState(() {});
+              },
+              icon: const Icon(
+                Icons.refresh,
+                color: Colors.white,
+              ))
+        ],
         backgroundColor: Colors.blue,
         title: const Text('Tarefas', style: TextStyle(color: Colors.white)),
       ),
@@ -90,11 +100,13 @@ class _InitialScreenState extends State<InitialScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (contextNew) => FormScreen(
-                        taskContext: context,
-                      )));
+            context,
+            MaterialPageRoute(
+              builder: (contextNew) => FormScreen(
+                taskContext: context,
+              ),
+            ),
+          ).then((value) => setState(() {}));
         },
         backgroundColor: Colors.blue,
         child: const Icon(Icons.add, color: Colors.white),
