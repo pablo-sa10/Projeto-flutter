@@ -10,17 +10,6 @@ class TaskInherited extends InheritedWidget {
   final List<Task> taskList = [
     Task("Aprender Flutter", "assets/images/bird.jpg", 1),
     Task("Aprender Flutter", "assets/images/bird.jpg", 3),
-    Task("Aprender Flutter", "assets/images/bird.jpg", 3),
-    Task("Aprender Flutter", "assets/images/bird.jpg", 3),
-    Task("Aprender Flutter", "assets/images/bird.jpg", 3),
-    Task("Aprender Flutter", "assets/images/bird.jpg", 3),
-    Task("Aprender Flutter", "assets/images/bird.jpg", 3),
-    Task("Aprender Flutter", "assets/images/bird.jpg", 3),
-    Task("Aprender Flutter", "assets/images/bird.jpg", 3),
-    Task("Aprender Flutter", "assets/images/bird.jpg", 3),
-    Task("Aprender Flutter", "assets/images/bird.jpg", 3),
-    Task("Aprender Flutter", "assets/images/bird.jpg", 3),
-    Task("Aprender Flutter", "assets/images/bird.jpg", 3),
   ];
 
   void newTask(String name, String photo, int difficulty) {
