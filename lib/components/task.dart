@@ -101,20 +101,21 @@ class _TaskState extends State<Task> {
                                 context: context,
                                 builder: (BuildContext context) {
                                   return AlertDialog(
-                                    title: Text("Atenção!"),
-                                    content: Text("Deseja excluir a tarefa?"),
+                                    title: const Text("Atenção!"),
+                                    content:
+                                        const Text("Deseja excluir a tarefa?"),
                                     actions: [
                                       TextButton(
                                           onPressed: () {
                                             Navigator.pop(context);
                                           },
-                                          child: Text("Cancelar")),
+                                          child: const Text("Cancelar")),
                                       TextButton(
                                           onPressed: () {
                                             Navigator.pop(context);
                                             TaskDao().delete(widget.nomeTarefa);
                                           },
-                                          child: Text("Sim")),
+                                          child: const Text("Sim")),
                                     ],
                                   );
                                 });
